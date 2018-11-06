@@ -1,0 +1,12 @@
+#!/bin/bash
+
+session=work
+
+tmux start-server
+tmux new-session -d -s $session -n nvim #"nvim"
+tmux selectp -t 1
+tmux send-keys "vim" C-m
+tmux new-window -t $session:1 -n zsh
+tmux select-window -t $session:1
+
+tmux attach-session -t $session

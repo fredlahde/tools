@@ -1,0 +1,3 @@
+#!/bin/bash
+
+free -h | cut -d$'\n' -f 2 | awk -s '{print $4}'

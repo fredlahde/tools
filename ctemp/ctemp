@@ -1,0 +1,5 @@
+#!/bin/bash
+
+sum="$(sensors | grep Core | awk '{print $3}' | cut -d+ -f2 | cut -d'°' -f1 | awk '{s+=$1} END {print s}')"
+
+echo "$sum / 4" | bc
